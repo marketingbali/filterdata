@@ -3,227 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Google Apps Script</title>
+  <title>Frrk.io</title>
   <style>
-   /* Reset CSS */
-    *,
-    *::before,
-    *::after {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
-
-    /* Global Styles */
+    /* CSS Styles here */
     body {
-      font-family: 'Rubik', sans-serif;
-      font-size: 16px;
-      line-height: 1.5;
-      color: #ffffff;
-      background-color: #212529;
+      font-family: "Open Sans", Helvetica, sans-serif;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 15px;
-    }
-
-    /* Header Section */
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 100;
-      width: 100%;
-      background-color: #343a40;
-      padding: 20px 0;
-      transition: background-color 0.3s ease;
-    }
-
+    /* Header, Main Menu */
     .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      opacity: 0.8;
+      margin-bottom: 0;
+      background-color: #fff;
+      transition: all 0.2s ease-out;
     }
 
-    .brand {
-      color: #ffffff;
-      font-size: 24px;
-      text-decoration: none;
-      font-weight: bold;
+    /* Navbar when scrolled */
+    .navbar-scroll {
+      opacity: 1;
     }
 
-    .burger {
-      display: block;
-      cursor: pointer;
-      padding: 10px;
-    }
-
-    .burger-line {
-      display: block;
-      width: 30px;
-      height: 3px;
-      background-color: #ffffff;
-      margin: 5px 0;
-    }
-
-    .menu {
+    #top-social-menu {
       display: none;
     }
 
-    .menu-inner {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-    }
-
-    .menu-item {
-      margin-right: 20px;
-    }
-
-    .menu-link {
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 18px;
-    }
-
-    /* Main Section */
-    .main {
-      padding-top: 80px; /* Adjust according to header height */
-    }
-
-    .section {
-      padding: 80px 0;
-      text-align: center;
-    }
-
-    .banner-image {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 30px;
-    }
-
-    .heading-xl {
-      font-size: 36px;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    .paragraph {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      font-size: 18px;
-      text-decoration: none;
-      background-color: #007bff;
-      color: #ffffff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #0056b3;
-    }
-
-    /* Footer Section */
-    .footer {
-      padding: 50px 0;
-      background-color: #343a40;
-      color: #ffffff;
-      text-align: center;
-    }
-
-    /* Media Queries */
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
+    /* Hover Link Effect */
+    @media (min-width: 768px) {
+      .navbar-nav>li>a::after {
+        /* Hover effect for navbar links */
       }
 
-      .menu {
+      /* Navbar when scrolled */
+      .navbar-scroll #top-social-menu {
         display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #343a40;
-        padding: 20px 0;
-      }
-
-      .menu.is-active {
-        display: block;
-      }
-
-      .menu-inner {
-        flex-direction: column;
-      }
-
-      .menu-item {
-        margin-right: 0;
-        margin-bottom: 10px;
-      }
-
-      .burger {
-        display: block;
+        transition: all 0.2s ease-out;
       }
     }
+
+    /* Social menu */
+    #top-social-menu {
+      /* Styles for social menu */
+    }
+
+    /* Section Full Width Image */
+    .full-width-img {
+      /* Styles for full-width image section */
+    }
+
+    .box {
+      /* Styles for box */
+    }
+
+    .subheading-text {
+      /* Styles for subheading text */
+    }
+
+    /* Section Black, White */
+    .section-black,
+    .section-white {
+      /* Styles for black and white sections */
+    }
+
   </style>
 </head>
 <body>
-  <!-- Header Section -->
-  <header class="header" id="header">
-    <nav class="navbar container">
-      <a href="#" class="brand">Brand</a>
-      <div class="burger" id="burger">
-        <span class="burger-line"></span>
-        <span class="burger-line"></span>
-        <span class="burger-line"></span>
+  <header>
+    <nav id="main-navbar" class="navbar navbar-default navbar-fixed-top">
+      <div class="container navbar-container">
+        <div class="navbar-header">
+          <!-- Navbar header content -->
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <!-- Navbar collapse content -->
+        </div>
+        <div class="top-social">
+          <!-- Top social menu content -->
+        </div>
       </div>
-      <div class="menu" id="menu">
-        <ul class="menu-inner">
-          <li class="menu-item"><a href="#" class="menu-link">Home</a></li>
-          <li class="menu-item"><a href="#" class="menu-link">Feature</a></li>
-          <li class="menu-item"><a href="#" class="menu-link">Product</a></li>
-          <li class="menu-item"><a href="#" class="menu-link">Support</a></li>
-        </ul>
-      </div>
-      <a href="#" class="menu-block">Discover</a>
     </nav>
   </header>
-  
-  <!-- Main Section -->
-  <main class="main">
-    <section class="section banner banner-section">
-      <div class="container banner-column">
-        <img class="banner-image" src="https://i.ibb.co/vB5LTFG/Headphone.png" alt="banner">
-        <div class="banner-inner">
-          <h1 class="heading-xl">Experience Media Like Never Before</h1>
-          <p class="paragraph">
-            Enjoy award-winning stereo beats with wireless listening freedom and sleek,
-            streamlined with premium padded and delivering first-rate playback.
-          </p>
-          <button class="btn btn-darken btn-inline">
-            Our Products<i class="bx bx-right-arrow-alt"></i>
-          </button>
-        </div>
-        <div class="banner-links">
-          <a href="#" title=""><i class="bx bxl-facebook"></i></a>
-          <a href="#" title=""><i class="bx bxl-instagram"></i></a>
-          <a href="#" title=""><i class="bx bxl-twitter"></i></a>
-          <a href="#" title=""><i class="bx bxl-youtube"></i></a>
-        </div>
-      </div>
-    </section>
-  </main>
 
-  <!-- HTML iframe -->
+  <section class="full-width-img">
+    <!-- Content for full-width image section -->
+  </section>
+
   <div class="container">
     <h1>Google Apps Script</h1>
     <div class="iframe-wrapper">
@@ -232,13 +95,24 @@
     </div>
   </div>
 
-  <!-- JavaScript untuk burger menu dan efek header -->
-  <script>
-    const burgerMenu = document.getElementById("burger");
-    const navbarMenu = document.getElementById("menu");
+  <section class="section-black">
+    <!-- Content for black section -->
+  </section>
 
-    burgerMenu.addEventListener("click", () => {
-      navbarMenu.classList.toggle("is-active");
+  <section class="section-white">
+    <!-- Content for white section -->
+  </section>
+
+  <!-- JavaScript code -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(window).scroll(function () {
+      var sc = $(window).scrollTop()
+      if (sc > 150) {
+        $("#main-navbar").addClass("navbar-scroll")
+      } else {
+        $("#main-navbar").removeClass("navbar-scroll")
+      }
     });
   </script>
 </body>
