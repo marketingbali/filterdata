@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,181 +7,196 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
     <style>
       body {
-    padding: 0;
-    margin: 0;
-}
-.container {
-    position: absolute;
-    margin-top: 100px;
-    display: block;
-    width: 100%;
-}
-nav {
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    right: 0;
-    top: 0;
-    font-family: 'Montserrat', 'sans-serif';
-    height: 100px;
-    background-color: #3e65da;
-    padding: 0 5%;
+        padding: 0;
+        margin: 0;
+      }
 
-}
-nav .logo { 
-    float: left;
-    width: 40%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    font-size: 24px;
-    color: #fff;
-}
-nav .links {
-    float: right;
-    padding: 0;
-    margin: 0;
-    width: 60%;
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-nav .links li {
-    list-style: none;
-}
-nav .links a {
-    display: block;
-    padding: 1em;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-    position: relative;
-}
-nav .links a:hover {
-    color: white;
-}
-nav .links a::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: white;
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out 0s;
-}
-nav .links a:hover::before {
-    visibility: visible;
-    transform: scaleX(1);
-    color: white;
-}
-#nav-toggle {
-     position: absolute;
-     top: -100px;
-}
-nav .icon-burger {
-    display: none;
-    position: absolute;
-    right: 5%;
-    top: 50%;
-    transform: translateY(-50%);
-}
-nav .icon-burger .line {
-    width: 30px;
-    height: 5px;
-    background-color: #fff;
-    margin: 5px;
-    border-radius: 3px;
-    transition: all .5s ease-in-out;
-}
-@media screen and (max-width: 768px) {
-    nav .logo {
-        float: none;
-        width: auto;
-        justify-content: center;
-    }
-    nav .links {
-        float: none;
+      .container {
         position: fixed;
-        z-index: 9;
+        top: 100px; /* Adjust top position as needed */
+        width: 100%;
+        z-index: 1; /* Ensure the container is above the navigation */
+        background-color: rgba(255, 255, 255, 0.8); /* Adjust background color and opacity as needed */
+        padding: 20px; /* Add padding to separate the content from the edges */
+      }
+
+      nav {
+        position: fixed;
+        z-index: 10;
         left: 0;
         right: 0;
-        top: 100px;
-        bottom: 100%;
-        width: auto;
-        height: auto;
-        flex-direction: column;
-        justify-content: space-evenly;
-        background-color: rgba(0, 0, 0, .8);
-        overflow: hidden;
-        transition: all .5s ease-in-out;
-    }
-    nav .links a {
-        font-size: 20px;
-    }
-    nav :checked ~ .links {
-        bottom: 0;
-    }
-    nav .icon-burger {
+        top: 0;
+        font-family: 'Montserrat', 'sans-serif';
+        height: 100px;
+        background-color: #3e65da;
+        padding: 0 5%;
+      }
+
+      nav .logo { 
+        float: left;
+        width: 40%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        color: #fff;
+      }
+
+      nav .links {
+        float: right;
+        padding: 0;
+        margin: 0;
+        width: 60%;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      nav .links li {
+        list-style: none;
+      }
+
+      nav .links a {
         display: block;
-    }
-    nav :checked ~ .icon-burger .line:nth-child(1) {
-        transform: translateY(10px) rotate(225deg);
-    }
-    nav :checked ~ .icon-burger .line:nth-child(3) {
-        transform: translateY(-10px) rotate(-225deg);
-    }
-    nav :checked ~ .icon-burger .line:nth-child(2) {
-        opacity: 0;
-    }
-}
+        padding: 1em;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        text-decoration: none;
+        position: relative;
+      }
+
+      nav .links a:hover {
+        color: white;
+      }
+
+      nav .links a::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: white;
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: all 0.3s ease-in-out 0s;
+      }
+
+      nav .links a:hover::before {
+        visibility: visible;
+        transform: scaleX(1);
+        color: white;
+      }
+
+      #nav-toggle {
+        position: absolute;
+        top: -100px;
+      }
+
+      nav .icon-burger {
+        display: none;
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      nav .icon-burger .line {
+        width: 30px;
+        height: 5px;
+        background-color: #fff;
+        margin: 5px;
+        border-radius: 3px;
+        transition: all .5s ease-in-out;
+      }
+
+      @media screen and (max-width: 768px) {
+        nav .logo {
+          float: none;
+          width: auto;
+          justify-content: center;
+        }
+        nav .links {
+          float: none;
+          position: fixed;
+          z-index: 9;
+          left: 0;
+          right: 0;
+          top: 100px;
+          bottom: 100%;
+          width: auto;
+          height: auto;
+          flex-direction: column;
+          justify-content: space-evenly;
+          background-color: rgba(0, 0, 0, .8);
+          overflow: hidden;
+          transition: all .5s ease-in-out;
+        }
+        nav .links a {
+          font-size: 20px;
+        }
+        nav :checked ~ .links {
+          bottom: 0;
+        }
+        nav .icon-burger {
+          display: block;
+        }
+        nav :checked ~ .icon-burger .line:nth-child(1) {
+          transform: translateY(10px) rotate(225deg);
+        }
+        nav :checked ~ .icon-burger .line:nth-child(3) {
+          transform: translateY(-10px) rotate(-225deg);
+        }
+        nav :checked ~ .icon-burger .line:nth-child(2) {
+          opacity: 0;
+        }
+      }
+
       .iframe-wrapper {
-      position: relative;
-      padding-top: 56.25%; /* Aspect ratio 16:9 */
-    }
+        position: relative;
+        padding-top: 56.25%; /* Aspect ratio 16:9 */
+      }
 
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
 
-    h1 {
-      text-align: center;
-    }
+      h1 {
+        text-align: center;
+      }
     </style>
 </head>
 <body>
     <nav>
         <input type="checkbox" id="nav-toggle">
         <div class="logo">CAHYA <strong>INTAN MEDIKA</strong></div>
-       <ul class="links">
-           <li><a href="https://kantorcim.blogspot.com/">Home</a></li>
-           <li><a href="#about">About</a></li>
-           <li><a href="#work">Work</a></li>
-           <li><a href="#projects">Projects</a></li>
-           <li><a href="#contact">Contact</a></li>
-       </ul>
-       <label for="nav-toggle" class="icon-burger">
-           <div class="line"></div>
-           <div class="line"></div>
-           <div class="line"></div>
-       </label>
+        <ul class="links">
+            <li><a href="https://kantorcim.blogspot.com/">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <label for="nav-toggle" class="icon-burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </label>
     </nav>
-<div class="container">
-      <!-- HTML iframe -->
-    <div class="iframe-wrapper">
-      <!-- Replace 'YOUR_GOOGLE_APPS_SCRIPT_URL' with the URL of your Google Apps Script -->
-      <iframe src="https://script.google.com/macros/s/AKfycbwwJO0iinQA_71-ljY5V56HQWXpk_QIwHAsDqNJus_6vWg1EOv0CHnaNRHwg321G4Nf/exec"></iframe>
+    <div class="container">
+        <!-- HTML iframe -->
+        <div class="iframe-wrapper">
+            <!-- Replace 'YOUR_GOOGLE_APPS_SCRIPT_URL' with the URL of your Google Apps Script -->
+            <iframe src="https://script.google.com/macros/s/AKfycbwwJO0iinQA_71-ljY5V56HQWXpk_QIwHAsDqNJus_6vWg1EOv0CHnaNRHwg321G4Nf/exec"></iframe>
+        </div>  
     </div>  
-  </div>  
     <label for="nav-toggle" class="icon-burger">
         <div class="line"></div>
         <div class="line"></div>
