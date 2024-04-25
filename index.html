@@ -5,41 +5,225 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Apps Script</title>
   <style>
-    body {
-      margin: 0;
+   /* Reset CSS */
+    *,
+    *::before,
+    *::after {
       padding: 0;
-      font-family: Arial, sans-serif;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: 'Rubik', sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #ffffff;
+      background-color: #212529;
     }
 
     .container {
-      max-width: 100%;
-      margin: 20px auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
     }
 
-    .iframe-wrapper {
-      position: relative;
-      padding-top: 56.25%; /* Aspect ratio 16:9 */
-    }
-
-    iframe {
-      position: absolute;
+    /* Header Section */
+    .header {
+      position: fixed;
       top: 0;
       left: 0;
+      z-index: 100;
       width: 100%;
-      height: 100%;
-      border: none;
+      background-color: #343a40;
+      padding: 20px 0;
+      transition: background-color 0.3s ease;
     }
 
-    h1 {
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      color: #ffffff;
+      font-size: 24px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .burger {
+      display: block;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    .burger-line {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: #ffffff;
+      margin: 5px 0;
+    }
+
+    .menu {
+      display: none;
+    }
+
+    .menu-inner {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+
+    .menu-item {
+      margin-right: 20px;
+    }
+
+    .menu-link {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    /* Main Section */
+    .main {
+      padding-top: 80px; /* Adjust according to header height */
+    }
+
+    .section {
+      padding: 80px 0;
       text-align: center;
+    }
+
+    .banner-image {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 30px;
+    }
+
+    .heading-xl {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .paragraph {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 18px;
+      text-decoration: none;
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Footer Section */
+    .footer {
+      padding: 50px 0;
+      background-color: #343a40;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+      }
+
+      .menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #343a40;
+        padding: 20px 0;
+      }
+
+      .menu.is-active {
+        display: block;
+      }
+
+      .menu-inner {
+        flex-direction: column;
+      }
+
+      .menu-item {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+
+      .burger {
+        display: block;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Header Section -->
+  <header class="header" id="header">
+    <nav class="navbar container">
+      <a href="#" class="brand">Brand</a>
+      <div class="burger" id="burger">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </div>
+      <div class="menu" id="menu">
+        <ul class="menu-inner">
+          <li class="menu-item"><a href="#" class="menu-link">Home</a></li>
+          <li class="menu-item"><a href="#" class="menu-link">Feature</a></li>
+          <li class="menu-item"><a href="#" class="menu-link">Product</a></li>
+          <li class="menu-item"><a href="#" class="menu-link">Support</a></li>
+        </ul>
+      </div>
+      <a href="#" class="menu-block">Discover</a>
+    </nav>
+  </header>
+  
+  <!-- Main Section -->
+  <main class="main">
+    <section class="section banner banner-section">
+      <div class="container banner-column">
+        <img class="banner-image" src="https://i.ibb.co/vB5LTFG/Headphone.png" alt="banner">
+        <div class="banner-inner">
+          <h1 class="heading-xl">Experience Media Like Never Before</h1>
+          <p class="paragraph">
+            Enjoy award-winning stereo beats with wireless listening freedom and sleek,
+            streamlined with premium padded and delivering first-rate playback.
+          </p>
+          <button class="btn btn-darken btn-inline">
+            Our Products<i class="bx bx-right-arrow-alt"></i>
+          </button>
+        </div>
+        <div class="banner-links">
+          <a href="#" title=""><i class="bx bxl-facebook"></i></a>
+          <a href="#" title=""><i class="bx bxl-instagram"></i></a>
+          <a href="#" title=""><i class="bx bxl-twitter"></i></a>
+          <a href="#" title=""><i class="bx bxl-youtube"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- HTML iframe -->
   <div class="container">
     <h1>Google Apps Script</h1>
     <div class="iframe-wrapper">
@@ -47,5 +231,15 @@
       <iframe src="https://script.google.com/macros/s/AKfycbwwJO0iinQA_71-ljY5V56HQWXpk_QIwHAsDqNJus_6vWg1EOv0CHnaNRHwg321G4Nf/exec"></iframe>
     </div>
   </div>
+
+  <!-- JavaScript untuk burger menu dan efek header -->
+  <script>
+    const burgerMenu = document.getElementById("burger");
+    const navbarMenu = document.getElementById("menu");
+
+    burgerMenu.addEventListener("click", () => {
+      navbarMenu.classList.toggle("is-active");
+    });
+  </script>
 </body>
 </html>
